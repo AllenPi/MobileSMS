@@ -145,7 +145,8 @@ module.exports = class ShwarmaOrder extends Order{
                     this.pBbq = 9;
                 }else if (this.bbq.toLowerCase()=="beef"){
                     this.pBbq = 11;
-                }else   {
+                }else
+                {
                     this.pBbq = 4;
                 }
                 if(this.salad.toLowerCase()=="salmon")

@@ -138,25 +138,31 @@ module.exports = class ShwarmaOrder extends Order{
                 this.isDone(true);
                 if(sInput.toLowerCase() != "no"){
                     this.sDrinks = sInput;
-                    this.pDrink = 2;}
+                    this.pDrink = 2;
                
                 if(this.bbq.toLowerCase()=="Pork")
                 {
                     this.pBbq = 9;
                 }else if (this.bbq.toLowerCase()=="beef"){
                     this.pBbq = 11;
-                }else   {
+                }else if(this.bbq.toLowerCase()=="vegetable")
+                {
                     this.pBbq = 4;
+                }else {
+                    aReturn.push("Please put in the right BBQ!");
+                    this.stateCur = OrderState.BBQ;
+                    
+                    break;
                 }
                 if(this.salad.toLowerCase()=="salmon")
                 {
                     this.pSalad = 13;
-                }else if (this.salad.toLowerCase()=="vegan"){
+                }else if (this.bbq.toLowerCase()=="vegan"){
                     this.pSalad = 12;
                 }else 
                 {
                     this.pSalad = 8;
-                } 
+                } }
 
                 aReturn.push("Thank-you for your order of");
                 aReturn.push("---Details:---");
