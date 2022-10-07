@@ -12,7 +12,7 @@ const OrderState = Object.freeze({
     BBQ: Symbol("bbq") 
 });
 
-module.exports = class ShwarmaOrder extends Order{
+module.exports = class NoodleOrder extends Order{
     constructor(sNumber, sUrl){
         super(sNumber, sUrl);
         this.stateCur = OrderState.WELCOMING;
