@@ -160,7 +160,7 @@ module.exports = class ShwarmaOrder extends Order{
                 }
 
                 aReturn.push("Thank-you for your order of");
-                aReturn.push("Details:");
+                aReturn.push("---Details:---");
                 // let this.total = 0;
                 if(this.noodle !="")
                 {
@@ -169,10 +169,13 @@ module.exports = class ShwarmaOrder extends Order{
                 }
                 if(this.salad!="")
                 {
-                    aReturn.push(`Salad,  ${this.salad}  ${this.pSalad}$`);
+                    aReturn.push(`Salad,  ${this.salad}  ${this.pSalad}$`);                    
+                    this.total += this.pSalad;
+                }
+                if(this.bbq!="")
+                {
                     aReturn.push(`Bbq,  ${this.bbq}  ${this.pBbq}$`);
                     this.total += this.pBbq;
-                    this.total += this.pSalad;
                 }
                 aReturn.push(`Toppings, ${this.sToppings}  ${this.pTopping}$`);
                 this.total += this.pTopping;
@@ -182,12 +185,14 @@ module.exports = class ShwarmaOrder extends Order{
                     this.total += this.pDrink;
                     aReturn.push(`Drinks, ${this.sDrinks}  ${this.pDrink}$`);
                 }        
-                aReturn.push("Summary: Thank-you for your order of");
-                aReturn.push(`${this.sSize} ${this.sItem} with ${this.sToppings}.  `);
+                aReturn.push("---Summary:---");
+                aReturn.push(` Thank-you for your order of ${this.sSize} ${this.sItem} with ${this.sToppings}.  `);
                 if(this.sDrinks){
                     aReturn.push(`And also with drink : ${this.sDrinks}`);
                 }
                 aReturn.push(`Total Amount: ${this.total}`);
+
+                aReturn.push("---------");
                 aReturn.push(`Please pay for your order here`);
                 aReturn.push(`${this.sUrl}/payment/${this.sNumber}/`);
                 break;
